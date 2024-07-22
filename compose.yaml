@@ -10,5 +10,16 @@ services:
       POSTGRES_DB: nest
     networks:
       - pilot
+  test-db:
+    image: postgres:16-alpine
+    ports:
+      - 5433:5432
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: nest
+    networks:
+      - pilot
 networks:
   pilot:
